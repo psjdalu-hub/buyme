@@ -1,24 +1,13 @@
+// app/layout.tsx
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import Image from "next/image";
+import Navbar from "@/components/Navbar"; 
+import Footer from "@/components/footer"; 
 import "./globals.css";
 
-// 1. Import your Navbar and Footer
-import Navbar from "../components/Navbar"; 
-import Footer from "../components/footer"; // Added this line!
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "My Awesome Next.js Site", 
-  description: "Built with TypeScript and Next.js",
+  title: "My Awesome Site",
+  description: "E-commerce store setup",
 };
 
 export default function RootLayout({
@@ -27,21 +16,33 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-    >
-      <body suppressHydrationWarning className="min-h-screen flex flex-col">
-        {/* 2. Place the Navbar at the top */}
-        <Navbar /> 
+    <html lang="en">
+      {/* 1. Added overflow-x-hidden to prevent weird layout shaking */}
+      <body className="relative  antialiased selection:bg-blue-500/30 flex flex-col overflow-x-hidden">
+        
+        {/* GLOBAL FULL-SCREEN BACKGROUND IMAGE */}
+        {/* 2. FIXED SCROLLING: Removed h-screen/w-screen from here so it doesn't break document flow */}
+        <div className="fixed inset-0 -z-50 pointer-events-none">
+          <Image
+            src="/bg.jpg"         
+            alt="Site Background"
+            fill                 
+            priority             
+            className="object-cover object-center blur-md opacity-40" 
+          />
+        </div>
 
-        {/* 3. The page content grows to fill space */}
-        <main className="flex-grow bg-slate-50">
+        {/* Navbar */}
+        <Navbar />
+
+        {/* 3. FIXED ALIGNMENT: Centers content on ALL pages (/dashboard, /about, etc.) */}
+        <main className="grow w-full max-w-8xl mx-auto px-6 lg:px-8 flex flex-col items-center justify-center py-20">
           {children}
         </main>
-        
-        {/* 4. Use the new premium Footer component! */}
+
+        {/* Footer */}
         <Footer />
+
       </body>
     </html>
   );

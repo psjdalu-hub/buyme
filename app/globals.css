@@ -1,8 +1,74 @@
 @import "tailwindcss";
 
-/* That's it! No more @tailwind base, components, utilities. */
-/* You can add custom theme variables here if you want: */
-@theme {
+:root {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
+
+/* Force the body to allow background transparency */
+body {
+  background-color: transparent !important;
+}
+
+/* 1. Style the Grid Container */
+.grid-container {
+    display: grid;
+    /* Creates 3 equal columns that automatically resize */
+    grid-template-columns: repeat(3, 1fr); 
+    /* Adds a 20px gap between the boxes */
+    gap: 20px; 
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the grid on the homepage */
+}
+
+/* 2. Style the Individual Grid Boxes */
+.grid-box {
+    background-color: #f0f4f8;
+    border: 2px solid #7daadd;
+    border-radius: 8px;
+    padding: 40px 20px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    transition: transform 0.2s ease;
+}
+
+/* Optional: Add a hover effect to make it look interactive */
+.grid-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Mobile version: 1 column */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); 
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Tablet version: 2 columns */
+@media (min-width: 600px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop version: 3 columns */
+@media (min-width: 900px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+.grid-container {
+    display: grid;
+    /* Automatically creates columns that are at least 250px wide */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
 }
