@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Navbar from "@/components/Navbar"; 
 import Footer from "@/components/footer"; 
+import SplashScreen from "@/components/SplashScreen"; // 🌟 Step 1: Import the new preloader component
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -18,13 +19,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       {/* 1. Added overflow-x-hidden to prevent weird layout shaking */}
-      <body className="relative  antialiased selection:bg-blue-500/30 flex flex-col overflow-x-hidden">
+      <body className="relative antialiased selection:bg-blue-500/30 flex flex-col overflow-x-hidden">
         
+        {/* 🌟 Step 2: Render Splash Screen directly at the root of the body */}
+        <SplashScreen />
+
         {/* GLOBAL FULL-SCREEN BACKGROUND IMAGE */}
-        {/* 2. FIXED SCROLLING: Removed h-screen/w-screen from here so it doesn't break document flow */}
+        {/* 🚀 CRITICAL FIX: Changed src path to /buyme/bg.jpg for GitHub Pages support */}
         <div className="fixed inset-0 -z-50 pointer-events-none">
           <Image
-            src="/bg.jpg"         
+            src="/buyme/bg.jpg"         
             alt="Site Background"
             fill                 
             priority             
