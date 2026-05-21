@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📦 BUYME.lk — Premium Marketplace Inventory & Inquiries Hub
 
-## Getting Started
+Welcome to **BUYME.lk**, a modern, blazing-fast e-commerce inventory platform built using **Next.js (App Router)** and **Tailwind CSS**. This platform provides interactive storefront navigation, responsive interface components, and a direct serverless cloud database integration.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Core Features Deployed
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 1. Interactive Product Catalog & Real-time Search
+* Over 20+ premium tech gadget listings organized into a dynamic CSS Grid array.
+* Real-time search entry bar driven by React component states (`useState`), instantly filtering inventory matches (`.toLowerCase().includes()`) as the user types without necessitating continuous server requests.
+* Custom empty fallback viewport warning layout blocks if product queries return 0 database matches.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 2. High-Impact Neubrutalism Layout Elements
+* Designed with thick borders (`border-2 border-black`), heavy structural drop shadows (`shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]`), and high-contrast color choices.
+* Custom-crafted interactive Red & Pink animated bow on the homepage acting as a high-conversion call-to-action link block.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Accessible Responsive Mobile Navbar Drawer
+* Standard linear layout navigation paths are hidden automatically across phone viewports.
+* Replaced dynamically with a 3-line animated hamburger trigger button that rotates smoothly into an exact close "X" mark on selection.
+* Operates on a fluid maximum-height layout drawer panel animation transition block.
 
-## Learn More
+### 4. Serverless Cloud Database Pipeline Integration
+* Contact form dependencies have been migrated fully away from third-party automation software or API layers (like Web3Forms).
+* Connected directly to a custom **Google Apps Script** micro-server framework. Form properties are transmitted live over secure network vectors (`fetch` POST), parsing form parameters into designated rows in **Google Sheets** instantaneously alongside accurate user timestamps!
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Technology Framework Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* **Frontend Engine:** React 19 / Next.js (App Router layout framework)
+* **Styling Infrastructure:** Tailwind CSS (Utility classes & custom configurations)
+* **Language Runtime:** TypeScript (Strict data contracts and type safety)
+* **Backend Database Node:** Google Sheets API Web App Engine via JavaScript Apps Script
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📦 Local Installation Guide
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To review or run this marketplace dashboard architecture locally on your machine, deploy the following steps inside your terminal node:
+
+1. Clone this project repository layout:
+   ```bash
+   git clone [https://github.com/psjdalu-hub/buyme.git](https://github.com/psjdalu-hub/buyme.git)
