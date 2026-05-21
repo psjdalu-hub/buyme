@@ -54,7 +54,7 @@ export default function Footer() {
 
         {/* Bottom Copyright Section */} 
         <div className="pt-8 border-t border-slate-800/50 flex flex-col md:flex-row justify-center  items-center gap-4 text-xs font-medium text-slate-600">
-          <p>© {new Date().getFullYear()} BUYME.lk. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} BUYME.lk. All rights reserved. BY DN</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
