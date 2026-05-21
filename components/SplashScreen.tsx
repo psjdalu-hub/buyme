@@ -3,26 +3,48 @@
 import React, { useEffect, useState } from 'react';
 
 export default function SplashScreen() {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isAnimating, setIsAnimating] = useState(true);
+  const [isRendered, setIsRendered] = useState(true);
 
   useEffect(() => {
-    // ⏱️ Keeps the splash screen visible for 2 seconds, then handles fade out
-    const timer = setTimeout(() => {
-      setIsVisible(false);
-    }, 2000);
+    // ⏱️ Step 1: Wait 1 second for text entry, then trigger curtain slide-up
+    const slideTimer = setTimeout(() => {
+      setIsAnimating(false);
+    }, 1200);
 
-    return () => clearTimeout(timer);
+    // ⏱️ Step 2: Completely remove component from HTML once slide-up finishes
+    const removeTimer = setTimeout(() => {
+      setIsRendered(false);
+    }, 1800);
+
+    return () => {
+      clearTimeout(slideTimer);
+      clearTimeout(removeTimer);
+    };
   }, []);
 
-  if (!isVisible) return null;
+  if (!isRendered) return null;
 
   return (
-    <div className="fixed inset-0 z-9999 flex items-center justify-center bg-slate-50 animate-fade-out [animation-delay:1.5s]">
-      {/* 🚀 Neubrutalist Styled Text Pop Block */}
-      <div className="bg-emerald-400 border-4 border-black px-8 py-4 rounded-2xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] animate-pop-in">
-        <h1 className="text-5xl md:text-7xl font-black text-black tracking-wider selection:bg-transparent">
+    <div 
+      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black transition-transform duration-700 ease-[cubic-bezier(0.85,0,0.15,1)] ${
+        isAnimating ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
+      {/* 🌟 Cinematic Text Effect */}
+      <div className="overflow-hidden py-2">
+        <h1 
+          className={`text-5xl md:text-7xl font-black tracking-widest text-white transition-all duration-700 ease-out transform ${
+            isAnimating ? "translate-y-0 opacity-100 scale-100" : "translate-y-8 opacity-0 scale-95"
+          }`}
+        >
           BUYME.LK
         </h1>
+      </div>
+      
+      {/* Sleek minimalist neon loading indicator line */}
+      <div className="w-24 h-[3px] bg-emerald-400 mt-4 rounded-full overflow-hidden relative">
+        <div className="absolute inset-0 bg-white/50 animate-pulse" />
       </div>
     </div>
   );
