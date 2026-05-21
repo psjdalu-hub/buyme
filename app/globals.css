@@ -10,41 +10,41 @@ body {
 }
 
 /* ==========================================================================
-   🎬 EXACT VIDEO MATCH: FLASHING SHADING SPLIT REVEAL ENGINE
+   🎬 PREMIUM VIDEO-MATCHED FLASHING SHADING SPLIT REVEAL ENGINE
    ========================================================================== */
 
-/* 1. Flashing Shading Pulse (Breathing between highly visible, light shadow, and crisp contrast) */
-@keyframes shadingPulse {
+/* 1. Exact Video Shading Pulse: Cycles rapidly between focus, contrast fade, and blur snaps */
+@keyframes videoShadingPulse {
   0%, 100% {
     opacity: 1;
     filter: blur(0px);
     transform: scale(1);
   }
   25% {
-    opacity: 0.15;
-    filter: blur(2px);
-    transform: scale(0.99);
+    opacity: 0.12;
+    filter: blur(3px);
+    transform: scale(0.98);
   }
   50% {
-    opacity: 0.8;
+    opacity: 0.85;
     filter: blur(0px);
-    transform: scale(1.01);
+    transform: scale(1.02);
   }
   75% {
     opacity: 0.05;
-    filter: blur(4px);
-    transform: scale(0.98);
+    filter: blur(5px);
+    transform: scale(0.97);
   }
 }
 
-/* 2. Shimmering Metallic Gradient Motion Across Text */
+/* 2. Shimmering Metallic Color Shift Across Text */
 @keyframes textGradient {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* 3. Horizontal Shutter Splits */
+/* 3. Horizontal Split Shutters */
 @keyframes splitTop {
   0% { transform: translateY(0); }
   100% { transform: translateY(-100%); }
@@ -55,7 +55,7 @@ body {
   100% { transform: translateY(100%); }
 }
 
-/* 4. Elegant Homepage Reveal Wrapper */
+/* 4. Smooth Layout Reveal Wrapper */
 @keyframes premiumContentReveal {
   0% {
     opacity: 0;
@@ -71,22 +71,22 @@ body {
 .animate-shading-text {
   background-size: 200% auto !important;
   animation: 
-    shadingPulse 2.5s ease-in-out infinite,
+    videoShadingPulse 2.4s ease-in-out infinite,
     textGradient 3s linear infinite !important;
 }
 
 .animate-curtain-top {
-  animation: splitTop 0.85s cubic-bezier(0.85, 0, 0.15, 1) forwards;
+  animation: splitTop 0.9s cubic-bezier(0.85, 0, 0.15, 1) forwards;
 }
 
 .animate-curtain-bottom {
-  animation: splitBottom 0.85s cubic-bezier(0.85, 0, 0.15, 1) forwards;
+  animation: splitBottom 0.9s cubic-bezier(0.85, 0, 0.15, 1) forwards;
 }
 
 .animate-main-fade {
   opacity: 0;
   animation: premiumContentReveal 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-  animation-delay: 3.2s; /* Triggers smoothly as the shutter finishes opening */
+  animation-delay: 3.1s; /* Triggers smoothly right as curtains pass edge of viewport */
 }
 
 /* ==========================================================================
