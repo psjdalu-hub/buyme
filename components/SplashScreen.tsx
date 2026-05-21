@@ -7,15 +7,15 @@ export default function SplashScreen() {
   const [isRendered, setIsRendered] = useState(true);
 
   useEffect(() => {
-    // ⏱️ Step 1: Display pulsed branding logo on white for 2 seconds
+    // ⏱️ Step 1: Run the shading/flashing loop animation for 3 seconds
     const splitTimer = setTimeout(() => {
       setStartSplit(true);
-    }, 2000);
+    }, 3000);
 
-    // ⏱️ Step 2: Clean up component once panels slide completely out of viewport
+    // ⏱️ Step 2: Unmount component completely from DOM after shutter exits screen
     const removeTimer = setTimeout(() => {
       setIsRendered(false);
-    }, 3100);
+    }, 4000);
 
     return () => {
       clearTimeout(splitTimer);
@@ -28,32 +28,32 @@ export default function SplashScreen() {
   return (
     <div className="fixed inset-0 z-[9999] pointer-events-none overflow-hidden">
       
-      {/* 🏛️ TOP HALF PANEL */}
+      {/* 🏛️ TOP SHUTTER PANEL */}
       <div 
-        className={`absolute top-0 left-0 w-full h-[50vh] bg-white border-b border-neutral-100 flex items-end justify-center overflow-hidden pointer-events-auto ${
+        className={`absolute top-0 left-0 w-full h-[50vh] bg-white flex items-end justify-center overflow-hidden pointer-events-auto ${
           startSplit ? "animate-curtain-top" : ""
         }`}
       >
-        {/* Mirror half image container to anchor logo centering before split */}
+        {/* Keeps logo absolute centered across separating panels */}
         <div className="h-[100vh] w-full flex items-center justify-center translate-y-[25vh]">
-          <h1 className={`text-4xl md:text-5xl font-light tracking-[0.4em] text-neutral-800 selection:bg-transparent ${
-            startSplit ? "opacity-0 transition-opacity duration-300" : "animate-logo-pulse"
+          <h1 className={`text-4xl md:text-6xl font-black tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-fuchsia-500 to-purple-600 select-none pb-2 transition-opacity duration-200 ${
+            startSplit ? "opacity-0" : "animate-shading-text"
           }`}>
             BUYME.LK
           </h1>
         </div>
       </div>
 
-      {/* 🏛️ BOTTOM HALF PANEL */}
+      {/* 🏛️ BOTTOM SHUTTER PANEL */}
       <div 
-        className={`absolute bottom-0 left-0 w-full h-[50vh] bg-white border-t border-neutral-100 flex items-start justify-center overflow-hidden pointer-events-auto ${
+        className={`absolute bottom-0 left-0 w-full h-[50vh] bg-white flex items-start justify-center overflow-hidden pointer-events-auto ${
           startSplit ? "animate-curtain-bottom" : ""
         }`}
       >
-        {/* Secondary anchor keeping text visually locked together */}
+        {/* Mirror copy to make it seamless before separation */}
         <div className="h-[100vh] w-full flex items-center justify-center -translate-y-[25vh]">
-          <h1 className={`text-4xl md:text-5xl font-light tracking-[0.4em] text-neutral-800 selection:bg-transparent ${
-            startSplit ? "opacity-0 transition-opacity duration-300" : "animate-logo-pulse"
+          <h1 className={`text-4xl md:text-6xl font-black tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-fuchsia-500 to-purple-600 select-none pb-2 transition-opacity duration-200 ${
+            startSplit ? "opacity-0" : "animate-shading-text"
           }`}>
             BUYME.LK
           </h1>
